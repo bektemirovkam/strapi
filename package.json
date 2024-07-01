@@ -1,0 +1,16 @@
+{
+  "name": "strapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run start-frontend\" \"npm run start-cms\"",
+    "start-frontend": "cd frontend && npm install && npm run dev",
+    "start-cms": "cd cms && npm install && npm run develop"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
