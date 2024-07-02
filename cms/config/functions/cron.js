@@ -1,5 +1,9 @@
 module.exports = {
-    '*/1 * * * *': async ({ strapi }) => {
+    '*/10 * * * * *': async ({ strapi }) => {
+
+      console.log('****************');
+      console.log('TAKS STARTED....')
+
       const now = new Date();
       
 
@@ -24,6 +28,8 @@ module.exports = {
         });
       }))
 
+      console.log('PUBLISHED -> ', entriesToPublish.length)
+
       // Снятие с публикации записей
 
       const { results: entriesToUnpublish } = await strapi.api.promotion.services.promotion.find({
@@ -43,6 +49,11 @@ module.exports = {
           }
         });
       }))
+
+      console.log('UNPUBLISHED -> ', entriesToUnpublish.length)
+
+      console.log('TAKS COMPLETED....')
+      console.log('****************');
     },
   };
   
